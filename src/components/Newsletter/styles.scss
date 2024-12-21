@@ -17,6 +17,9 @@
     line-height: 22px;
     text-align: center;
     margin-bottom: 16px;
+    @media (max-width: 1024px) {
+      text-align: left;
+    }
   }
 
   &__form {
@@ -31,16 +34,29 @@
       background: var(--white);
       padding: 17px 16px;
       width: 100%;
-      max-width: 280px;
+      @media (min-width: 1025px) {
+        max-width: 280px;
+      }
+      @media (max-width: 1024px) {
+        &:nth-child(2) {
+          margin-top: 15px;
+        }
+      }
     }
     button {
       height: 48px;
       width: 100%;
-      max-width: 140px;
       border: 0;
       border-radius: 5px;
       background: var(--black);
       color: var(--white);
+      @media (min-width: 1025px) {
+        max-width: 140px;
+      }
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 7px;
     }
   }
 }
