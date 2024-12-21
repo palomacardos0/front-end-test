@@ -9,6 +9,9 @@
     max-width: 1250px;
     margin: auto;
     justify-content: space-between;
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
   }
   &__search {
     width: 100%;
@@ -20,12 +23,22 @@
       width: 100%;
       border: none;
       border-bottom: 1px solid var(--gray4);
+      &::placeholder {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17.73px;
+        color: var(--gray4);
+      }
     }
     button {
       position: absolute;
       right: 0;
       background: transparent;
       border: 0;
+    }
+
+    @media (max-width: 1024px) {
+      margin-top: 14px;
     }
   }
 
@@ -63,6 +76,22 @@
         text-decoration-skip-ink: none;
         color: var(--white);
       }
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    button {
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  &__logo {
+    img {
+      width: 109px;
     }
   }
 }
