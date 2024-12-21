@@ -1,0 +1,128 @@
+.newsletter-container {
+  display: flex;
+  width: 100%;
+  background: var(--gray1);
+  padding: 24px 16px 32px;
+  color: var(--gray6);
+
+  &__wrapper {
+    max-width: 716px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 16px;
+    @media (max-width: 1024px) {
+      text-align: left;
+    }
+  }
+
+  &__title-success {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+  }
+
+  &__text-success {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+  }
+  &__button-success {
+    width: 100%;
+    max-width: 328px;
+    height: 48px;
+    background: var(--black);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    color: var(--white);
+    margin: 15px auto 0;
+    display: block;
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    left: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: left;
+    color: var(--red2);
+    @media (max-width: 1024px) {
+      bottom: 0;
+    }
+  }
+  &__unexpected-error {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+    color: var(--red2);
+    margin-top: 5px;
+  }
+
+  &__form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    div {
+      width: 100%;
+      position: relative;
+      @media (max-width: 1024px) {
+        &:nth-child(2) {
+          margin-top: 15px;
+        }
+      }
+    }
+
+    input {
+      height: 48px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--white);
+      padding: 17px 16px;
+      width: 100%;
+      &.error {
+        border: 1px solid var(--red2);
+        @media (max-width: 1024px) {
+          margin-bottom: 15px;
+        }
+      }
+      &:focus {
+        outline: 1px solid #bdbdbd;
+      }
+      @media (min-width: 1025px) {
+        max-width: 280px;
+      }
+    }
+    button {
+      height: 48px;
+      width: 100%;
+      border: 0;
+      border-radius: 5px;
+      background: var(--black);
+      color: var(--white);
+      @media (min-width: 1025px) {
+        max-width: 140px;
+      }
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 7px;
+    }
+  }
+}
