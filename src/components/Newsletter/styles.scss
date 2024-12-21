@@ -1,0 +1,46 @@
+.newsletter-container {
+  display: flex;
+  width: 100%;
+  background: var(--gray1);
+  padding: 24px 16px 32px;
+  color: var(--gray6);
+
+  &__wrapper {
+    max-width: 716px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    input {
+      height: 48px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--white);
+      padding: 17px 16px;
+      width: 100%;
+      max-width: 280px;
+    }
+    button {
+      height: 48px;
+      width: 100%;
+      max-width: 140px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--black);
+      color: var(--white);
+    }
+  }
+}

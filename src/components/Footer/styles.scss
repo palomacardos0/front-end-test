@@ -3,14 +3,17 @@
   flex-direction: column;
   justify-content: center;
   background: var(--black);
-  padding: 32px 16px;
+  // padding: 32px 16px;
 
   &__wrapper {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-template-areas: "buttons buttons" "location createby";
-
+    width: 100%;
+    max-width: 1272px;
+    margin: 0 auto;
+    padding: 32px 16px;
     @media (max-width: 1024px) {
       grid-template-areas: "location" "buttons" "createby";
     }
