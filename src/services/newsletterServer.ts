@@ -15,7 +15,6 @@ export async function postNewsletter(name: string, email: string) {
       status: response.status,
     };
   } catch (error) {
-    console.error(error);
     return {
       status: 400,
       data: {
