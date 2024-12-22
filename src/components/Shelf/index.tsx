@@ -20,8 +20,6 @@ export const Shelf = () => {
     loadProducts();
   }, []);
 
-  console.log("products", products);
-
   return (
     <section className="shelf-container">
       <div className="shelf-container__wrapper">

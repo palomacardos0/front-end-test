@@ -9,9 +9,16 @@ import "./styles.scss";
 import { Minicart } from "../Minicart";
 import { useState } from "react";
 import { Menu } from "../Menu";
+import { useCartContext } from "../../contexts/useCart";
 
 export const Header = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
+  const { cart } = useCartContext();
+
+  function calculateQuantity() {
+    const totalAmount = cart.reduce((sum, product) => sum + product.amount, 0);
+    return totalAmount;
+  }
 
   const [openCart, setOpenCart] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -37,7 +44,7 @@ export const Header = () => {
                 }}
               >
                 <img src={Cart} alt="Carrinho" />
-                <span>1</span>
+                <span>{calculateQuantity()}</span>
               </button>
             </div>
           </div>
@@ -72,7 +79,7 @@ export const Header = () => {
               }}
             >
               <img src={Cart} alt="Carrinho" />
-              <span>1</span>
+              <span>{calculateQuantity()}</span>
             </button>
           </div>
         </div>

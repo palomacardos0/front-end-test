@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  // useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { Product, ProductCart } from "../types/products";
 import { getProducts } from "../services/productsServer";
 
@@ -13,7 +7,7 @@ interface CartProviderProps {
 }
 
 interface CartContextData {
-  cart: Product[];
+  cart: ProductCart[];
   addToCart: (productId: number) => void;
 }
 
@@ -40,15 +34,6 @@ const ProviderUseCart = ({ children }: CartProviderProps) => {
 
     return [];
   });
-  // const [stock, setStock] = useState<Product[]>([]);
-
-  // useEffect(() => {
-  //   getProducts().then((response) => {
-  //     // setStock(response.data);
-
-  //     console.log(response);
-  //   });
-  // }, []);
 
   async function addToCart(id: number) {
     const updatedCart = [...cart];
