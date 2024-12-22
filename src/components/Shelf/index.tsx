@@ -26,8 +26,22 @@ export const Shelf = () => {
         {products ? (
           <>
             <Swiper
-              spaceBetween={99}
-              slidesPerView={4}
+              spaceBetween={22}
+              slidesPerView={2}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 22,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 44,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 99,
+                },
+              }}
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper: any) => console.log(swiper)}
             >

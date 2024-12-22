@@ -3,6 +3,7 @@ import { StarRating } from "../StarRating";
 import Flag from "../../../assets/flag.svg";
 
 import "./styles.scss";
+import { useCartContext } from "../../../contexts/useCart";
 
 export const ProductSummary = ({
   imageUrl,
@@ -11,7 +12,10 @@ export const ProductSummary = ({
   price,
   productName,
   stars,
+  productId,
 }: Product) => {
+  const { addToCart } = useCartContext();
+
   return (
     <div className="summary-container">
       <div className="summary-container__image">
@@ -42,7 +46,14 @@ export const ProductSummary = ({
         ) : (
           <p className="summary-container__installments"></p>
         )}
-        <button className="summary-container__buy-button">COMPRAR</button>
+        <button
+          className="summary-container__buy-button"
+          onClick={() => {
+            addToCart(productId);
+          }}
+        >
+          COMPRAR
+        </button>
       </div>
     </div>
   );

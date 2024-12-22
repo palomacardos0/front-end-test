@@ -12,3 +12,6 @@ export interface Product {
   price: number;
   installments: Installment[];
 }
+export interface ProductCart extends Product {
+  amount: number;
+}

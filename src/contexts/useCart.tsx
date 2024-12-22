@@ -2,10 +2,10 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
+  // useEffect,
   useState,
 } from "react";
-import { Product } from "../types/products";
+import { Product, ProductCart } from "../types/products";
 import { getProducts } from "../services/productsServer";
 
 interface CartProviderProps {
@@ -31,19 +31,47 @@ const useCartContext = () => {
 const CartContext = createContext<CartContextData>(DEFAULT_VALUES);
 
 const ProviderUseCart = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = useState<Product[]>([]);
-  const [stock, setStock] = useState<Product[]>([]);
+  const [cart, setCart] = useState<ProductCart[]>([]);
+  // const [stock, setStock] = useState<Product[]>([]);
 
-  useEffect(() => {
-    getProducts().then((response) => {
-      setStock(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getProducts().then((response) => {
+  //     // setStock(response.data);
+
+  //     console.log(response);
+  //   });
+  // }, []);
 
   async function addToCart(id: number) {
-    // const stock = await getProducts();
-    setCart(cart);
-    console.log("stock", stock);
+    const updatedCart = [...cart];
+
+    const productExists = updatedCart.find(
+      (product) => product.productId === id
+    );
+
+    const currentAmount = productExists ? productExists.amount : 0;
+    const amount = currentAmount + 1;
+
+    if (productExists) {
+      productExists.amount = amount;
+    } else {
+      const stock = await getProducts();
+
+      const product = stock.data.find((prod: Product) => {
+        return prod.productId == id;
+      });
+
+      if (product) {
+        const newProduct = {
+          ...product,
+          amount: 1,
+        };
+        updatedCart.push(newProduct);
+      }
+    }
+    console.log("🚀🚀🚀🚀🚀", updatedCart);
+
+    setCart(updatedCart);
   }
 
   return (
