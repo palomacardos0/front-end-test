@@ -1,0 +1,48 @@
+.shelf-container {
+  padding: 7px;
+  margin-bottom: 40px;
+
+  &__wrapper {
+    max-width: 1248px;
+    margin: 0 auto;
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 27.28px;
+  }
+
+  &__separator {
+    display: block;
+    width: 65px;
+    background: var(--gray3);
+    height: 4px;
+    margin: 6px 0 20px;
+  }
+
+  .swiper-wrapper {
+    margin-bottom: 20px;
+  }
+  .swiper-pagination {
+    @media (min-width: 1025px) {
+      display: none;
+    }
+  }
+
+  .swiper-button-next {
+    &:after {
+      content: url(../../assets/svgs/arrow-right.svg) !important;
+    }
+    @media (max-width: 1024px) {
+      display: none !important;
+    }
+  }
+  .swiper-button-prev {
+    &:after {
+      content: url(../../assets/svgs/arrow-left.svg) !important;
+    }
+    @media (max-width: 1024px) {
+      display: none !important;
+    }
+  }
+}
