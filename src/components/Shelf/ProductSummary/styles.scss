@@ -1,0 +1,82 @@
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 216px;
+  transition: all 0.5s;
+
+  &__image {
+    position: relative;
+  }
+
+  &__flag {
+    position: absolute;
+    right: 0;
+  }
+
+  &__infos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__product-name {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.37px;
+    text-align: center;
+    color: var(--gray4);
+    margin-bottom: 7px;
+  }
+
+  &__list-price {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.37px;
+    text-align: center;
+    text-decoration-line: line-through;
+    color: var(--gray4);
+    margin-top: 7px;
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24.55px;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  &__installments {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    color: var(--gray4);
+    margin-bottom: 8px;
+  }
+
+  &__buy-button {
+    border: 0;
+    background: var(--black);
+    color: var(--white);
+    height: 32px;
+    width: 100%;
+    max-width: 125px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: all 0.5s;
+    margin-bottom: 14px;
+  }
+
+  &:hover {
+    background: var(--gray2);
+
+    .summary-container__buy-button {
+      opacity: 1;
+    }
+  }
+}

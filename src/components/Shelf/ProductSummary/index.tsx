@@ -2,6 +2,8 @@ import { Product } from "../../../types/products";
 import { StarRating } from "../StarRating";
 import Flag from "../../../assets/flag.svg";
 
+import "./styles.scss";
+
 export const ProductSummary = ({
   imageUrl,
   installments,
@@ -11,24 +13,36 @@ export const ProductSummary = ({
   stars,
 }: Product) => {
   return (
-    <div>
-      <div>
-        {listPrice ? <img src={Flag} alt="" /> : <></>}
-        <img src={imageUrl} alt={productName} />
+    <div className="summary-container">
+      <div className="summary-container__image">
+        {listPrice ? (
+          <img src={Flag} alt="" className="summary-container__flag" />
+        ) : (
+          <></>
+        )}
+        <img
+          src={imageUrl}
+          alt={productName}
+          className="summary-container__product-image"
+        />
       </div>
-      <div>
-        <p>{productName}</p>
+      <div className="summary-container__infos">
+        <p className="summary-container__product-name">{productName}</p>
         <StarRating rating={stars ? stars : 0} />
-        {listPrice ? <p>de {listPrice}</p> : <></>}
-        <p>por {price}</p>
+        {listPrice ? (
+          <p className="summary-container__list-price">de {listPrice}</p>
+        ) : (
+          <></>
+        )}
+        <p className="summary-container__price">por {price}</p>
         {installments.length > 0 ? (
-          <p>
+          <p className="summary-container__installments">
             ou em {installments[0].quantity} x de {installments[0].value}
           </p>
         ) : (
           <></>
         )}
-        <button>COMPRAR</button>
+        <button className="summary-container__buy-button">COMPRAR</button>
       </div>
     </div>
   );
