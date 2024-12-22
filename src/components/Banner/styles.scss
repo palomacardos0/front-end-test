@@ -1,0 +1,19 @@
+.banner-container {
+  &__image {
+    width: 100%;
+    height: auto;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--red);
+}
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--gray7);
+  opacity: 1;
+}

@@ -1,7 +1,7 @@
 import { Newsletter } from "../Newsletter";
-import Email from "../../assets/email.svg";
-import Headset from "../../assets/headset.svg";
-import Logo from "../../assets/logo-white.svg";
+import Email from "../../assets/svgs/email.svg";
+import Headset from "../../assets/svgs/headset.svg";
+import Logo from "../../assets/svgs/logo-white.svg";
 
 import "./styles.scss";
 

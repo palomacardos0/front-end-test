@@ -1,10 +1,10 @@
 import { useMediaQuery } from "react-responsive";
 
-import Logo from "../../assets/logo.svg";
-import Search from "../../assets/search.svg";
-import User from "../../assets/user.svg";
-import Cart from "../../assets/cart.svg";
-import MenuIcon from "../../assets/menu.svg";
+import Logo from "../../assets/svgs/logo.svg";
+import Search from "../../assets/svgs/search.svg";
+import User from "../../assets/svgs/user.svg";
+import Cart from "../../assets/svgs/cart.svg";
+import MenuIcon from "../../assets/svgs/menu.svg";
 import "./styles.scss";
 import { Minicart } from "../Minicart";
 import { useState } from "react";

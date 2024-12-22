@@ -1,5 +1,5 @@
-import FilledStar from "../../../assets/filledStar.svg";
-import EmptyStar from "../../../assets/emptyStar.svg";
+import FilledStar from "../../../assets/svgs/filledStar.svg";
+import EmptyStar from "../../../assets/svgs/emptyStar.svg";
 
 interface StarRatingProps {
   rating: number;

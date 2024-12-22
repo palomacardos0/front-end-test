@@ -1,6 +1,6 @@
 import { Product } from "../../../types/products";
 import { StarRating } from "../StarRating";
-import Flag from "../../../assets/flag.svg";
+import Flag from "../../../assets/svgs/flag.svg";
 
 import "./styles.scss";
 import { useCartContext } from "../../../contexts/useCart";
