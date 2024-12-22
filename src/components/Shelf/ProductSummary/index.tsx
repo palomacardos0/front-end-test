@@ -34,14 +34,30 @@ export const ProductSummary = ({
         <p className="summary-container__product-name">{productName}</p>
         <StarRating rating={stars ? stars : 0} />
         {listPrice ? (
-          <p className="summary-container__list-price">de {listPrice}</p>
+          <p className="summary-container__list-price">
+            de{" "}
+            {(listPrice / 100).toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
         ) : (
           <p className="summary-container__list-price"></p>
         )}
-        <p className="summary-container__price">por {price}</p>
+        <p className="summary-container__price">
+          por{" "}
+          {(price / 100).toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
         {installments.length > 0 ? (
           <p className="summary-container__installments">
-            ou em {installments[0].quantity} x de {installments[0].value}
+            ou em {installments[0].quantity} x de{" "}
+            {(installments[0].value / 100).toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
           </p>
         ) : (
           <p className="summary-container__installments"></p>
