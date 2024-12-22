@@ -13,14 +13,13 @@ import { useCartContext } from "../../contexts/useCart";
 
 export const Header = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
-  const { cart } = useCartContext();
+  const { cart, setOpenCart, openCart } = useCartContext();
 
   function calculateQuantity() {
     const totalAmount = cart.reduce((sum, product) => sum + product.amount, 0);
     return totalAmount;
   }
 
-  const [openCart, setOpenCart] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <header className="header-container">
