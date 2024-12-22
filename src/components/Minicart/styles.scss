@@ -1,0 +1,32 @@
+.cart-container {
+  position: fixed;
+  background: var(--white);
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-width: 30%;
+  @media (max-width: 1024px) {
+    min-width: 90%;
+  }
+  &__close {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background: transparent;
+      border: 0;
+    }
+  }
+  &__product {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid var(--gray1);
+    img {
+      max-width: 100px;
+    }
+  }
+}

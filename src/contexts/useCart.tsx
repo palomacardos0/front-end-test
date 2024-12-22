@@ -9,11 +9,15 @@ interface CartProviderProps {
 interface CartContextData {
   cart: ProductCart[];
   addToCart: (productId: number) => void;
+  openCart: boolean;
+  setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DEFAULT_VALUES = {
   cart: [],
   addToCart: () => null,
+  openCart: false,
+  setOpenCart: () => null,
 };
 
 const useCartContext = () => {
@@ -25,6 +29,8 @@ const useCartContext = () => {
 const CartContext = createContext<CartContextData>(DEFAULT_VALUES);
 
 const ProviderUseCart = ({ children }: CartProviderProps) => {
+  const [openCart, setOpenCart] = useState(false);
+
   const [cart, setCart] = useState<ProductCart[]>(() => {
     const storagedCart = localStorage.getItem("@Corebiz:cart");
 
@@ -73,6 +79,8 @@ const ProviderUseCart = ({ children }: CartProviderProps) => {
       value={{
         addToCart,
         cart,
+        openCart,
+        setOpenCart,
       }}
     >
       {children}
