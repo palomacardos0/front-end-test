@@ -32,7 +32,7 @@ export const ProductSummary = ({
         {listPrice ? (
           <p className="summary-container__list-price">de {listPrice}</p>
         ) : (
-          <></>
+          <p className="summary-container__list-price"></p>
         )}
         <p className="summary-container__price">por {price}</p>
         {installments.length > 0 ? (
@@ -40,7 +40,7 @@ export const ProductSummary = ({
             ou em {installments[0].quantity} x de {installments[0].value}
           </p>
         ) : (
-          <></>
+          <p className="summary-container__installments"></p>
         )}
         <button className="summary-container__buy-button">COMPRAR</button>
       </div>
