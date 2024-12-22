@@ -31,7 +31,15 @@ const useCartContext = () => {
 const CartContext = createContext<CartContextData>(DEFAULT_VALUES);
 
 const ProviderUseCart = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = useState<ProductCart[]>([]);
+  const [cart, setCart] = useState<ProductCart[]>(() => {
+    const storagedCart = localStorage.getItem("@Corebiz:cart");
+
+    if (storagedCart) {
+      return JSON.parse(storagedCart);
+    }
+
+    return [];
+  });
   // const [stock, setStock] = useState<Product[]>([]);
 
   // useEffect(() => {
@@ -72,6 +80,7 @@ const ProviderUseCart = ({ children }: CartProviderProps) => {
     console.log("🚀🚀🚀🚀🚀", updatedCart);
 
     setCart(updatedCart);
+    localStorage.setItem("@Corebiz:cart", JSON.stringify(updatedCart));
   }
 
   return (
