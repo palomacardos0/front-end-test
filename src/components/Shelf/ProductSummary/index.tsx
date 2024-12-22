@@ -1,6 +1,7 @@
 import { Product } from "../../../types/products";
 import { StarRating } from "../StarRating";
 import Flag from "../../../assets/svgs/flag.svg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import "./styles.scss";
 import { useCartContext } from "../../../contexts/useCart";
@@ -24,9 +25,16 @@ export const ProductSummary = ({
         ) : (
           <></>
         )}
-        <img
+        {/* @ts-ignore */}
+        <LazyLoadImage
           src={imageUrl}
           alt={productName}
+          effect="blur"
+          wrapperProps={{
+            style: { transitionDelay: "1s" },
+          }}
+          width="216px"
+          height="220px"
           className="summary-container__product-image"
         />
       </div>
