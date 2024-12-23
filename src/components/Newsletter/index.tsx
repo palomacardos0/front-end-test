@@ -6,29 +6,35 @@ export const Newsletter = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<{ name: boolean; email: boolean }>({
+    name: false,
+    email: false,
+  });
   const [success, setSuccess] = useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const response = await postNewsletter(name, email);
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (email.trim() === "" || name.trim() === "") {
-      setError(true);
-      return;
-    }
-    if (!emailRegex.test(email)) {
-      setError(true);
-      return;
-    }
+    const isNameEmpty = name.trim() === "";
+    const isEmailEmpty = email.trim() === "";
+    const isEmailInvalid = !emailRegex.test(email);
+
+    setError({
+      name: isNameEmpty,
+      email: isEmailEmpty || isEmailInvalid,
+    });
+
+    if (isNameEmpty || isEmailEmpty || isEmailInvalid) return;
+
+    const response = await postNewsletter(name, email);
 
     if (response.status === 200) {
       setName("");
       setEmail("");
       setSuccess(true);
-      setError(false);
+      setError({ name: false, email: false });
       setMessage("");
     } else {
       setMessage("Houve um erro inesperado, por favor tente novamente!");
@@ -47,9 +53,7 @@ export const Newsletter = () => {
           </p>
           <button
             className="newsletter-container__button-success"
-            onClick={() => {
-              setSuccess(!success);
-            }}
+            onClick={() => setSuccess(false)}
           >
             Cadastrar novo e-mail
           </button>
@@ -64,36 +68,30 @@ export const Newsletter = () => {
               <input
                 type="text"
                 placeholder="Digite seu nome"
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                onChange={(e) => setName(e.target.value)}
                 value={name}
-                className={error && name.trim() === "" ? "error" : ""}
+                className={error.name ? "error" : ""}
               />
-              {error && name.trim() === "" ? (
+              {error.name && (
                 <span className="newsletter-container__error">
                   Preencha com seu nome completo
                 </span>
-              ) : (
-                <></>
               )}
             </div>
             <div>
               <input
                 type="text"
                 placeholder="Digite seu email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                className={error && email.trim() === "" ? "error" : ""}
+                className={error.email ? "error" : ""}
               />
-              {error && email.trim() === "" ? (
+              {error.email && (
                 <span className="newsletter-container__error">
-                  Preencha com um e-mail válido
+                  {email.trim() === ""
+                    ? "Preencha com um e-mail válido"
+                    : "Formato de e-mail inválido"}
                 </span>
-              ) : (
-                <></>
               )}
             </div>
 
