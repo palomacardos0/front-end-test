@@ -5,7 +5,7 @@ import Close from "../../assets/svgs/close.svg";
 import "./styles.scss";
 
 export const Minicart = () => {
-  const { cart, setOpenCart } = useCartContext();
+  const { cart, setOpenCart, removeProduct } = useCartContext();
   return (
     <div className="cart-container">
       <div className="cart-container__close">
@@ -27,6 +27,14 @@ export const Minicart = () => {
                   <div>
                     <p>{item.productName}</p>
                     <p>Qtd. {item.amount}</p>
+                    <button
+                      onClick={() => {
+                        removeProduct(item.productId);
+                      }}
+                      className="cart-container__remove"
+                    >
+                      remover
+                    </button>
                   </div>
                 </div>
               );

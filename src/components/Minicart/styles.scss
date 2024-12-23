@@ -29,4 +29,10 @@
       max-width: 100px;
     }
   }
+
+  &__remove {
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+  }
 }
