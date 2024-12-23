@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# Aplicação Front-End Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Visão Geral
 
-## Available Scripts
+Esta é uma aplicação baseada em React que apresenta uma página inicial com a funcionalidade de adicionar itens ao carrinho.
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+## 📦 Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Página Inicial**: Exibe produtos e promoções dinamicamente.
+- **Adicionar ao Carrinho**: Permite adicionar itens ao carrinho.
+- **Design Responsivo**: Otimizado para dispositivos móveis e desktop.
+- **Lazy Load**: Imagens são carregadas sob demanda para melhorar o desempenho.
+- **Testes Unitários**: Inclui testes utilizando Testing Library e Jest.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## 🛠️ Tecnologias Utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: Biblioteca para construção da interface.
+- **TypeScript**: JavaScript com tipagem para maior confiabilidade.
+- **Axios**: Para requisições HTTP.
+- **Swiper**: Para criação de sliders e carrosséis.
+- **Sass**: Utilizado para estilizar a aplicação.
+- **Testing Library + Jest**: Para testes automatizados.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📋 Pré-requisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Certifique-se de ter instalado:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js (v16 ou superior)
+- npm (v7 ou superior)
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## ⚙️ Instalação
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone este repositório:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   git clone https://github.com/palomacardos0/front-end-test.git
+   cd front-end-test
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Instale as dependências:
+   Com npm:
+   npm install
 
-## Learn More
+   Com yarn:
+   yarn install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🖥️ Como Usar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Iniciar o Servidor de Desenvolvimento
+        Com npm:
+            npm start
+        Com yarn:
+            npm yarn
+
+    Abra http://localhost:3000 para visualizar no navegador.
+
+## 🧪 Executar Testes
+
+    Com npm:
+        npm test
+    Com yarn:
+        npm test
+
+## 📚 Scripts Disponíveis
+
+    npm start ou yarn start: Inicia a aplicação em modo de desenvolvimento.
+    npm run build ou yarn build: Gera uma build otimizada para produção.
+    npm test ou yarn test: Executa os testes unitários.
+    npm eject ou yarn eject: Remove as configurações padrão de build (use com cuidado)
