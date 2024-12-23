@@ -9,6 +9,7 @@ interface CartProviderProps {
 interface CartContextData {
   cart: ProductCart[];
   addToCart: (productId: number) => void;
+  removeProduct: (productId: number) => void;
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -16,6 +17,7 @@ interface CartContextData {
 const DEFAULT_VALUES = {
   cart: [],
   addToCart: () => null,
+  removeProduct: () => null,
   openCart: false,
   setOpenCart: () => null,
 };
@@ -74,9 +76,28 @@ const ProviderUseCart = ({ children }: CartProviderProps) => {
     localStorage.setItem("@Corebiz:cart", JSON.stringify(updatedCart));
   }
 
+  const removeProduct = (productId: number) => {
+    try {
+      const updatedCart = [...cart];
+      const productIndex = updatedCart.findIndex(
+        (product) => product.productId === productId
+      );
+      if (productIndex >= 0) {
+        updatedCart.splice(productIndex, 1);
+        setCart(updatedCart);
+        localStorage.setItem("@Corebiz:cart", JSON.stringify(updatedCart));
+      } else {
+        throw Error();
+      }
+    } catch {
+      console.error("Erro ao remover produto");
+    }
+  };
+
   return (
     <CartContext.Provider
       value={{
+        removeProduct,
         addToCart,
         cart,
         openCart,
